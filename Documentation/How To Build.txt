@@ -1,0 +1,26 @@
+Documentation for Shape Sensor Demo
+CKHarnett, 2013
+
+This is an 8-segment shape sensor that demonstrates the use of binary switches to report the shape of a curved structure. Each segment has a discrete shape (up or down).
+
+Cut the pieces out of 1/32" Delrin
+40 W Epilog laser settings 40% speed, 100% power, 500 Hz.
+
+
+Make the flexible circuit by getting Pyralux, about 5 mil with 1/4-ounce copper, covering it with scotch tape and cutting out the pattern (40 W laser settings: 2500 dpi, 100 pct speed, 10% power), weed out tape where you want to etch, and etch in ferric chloride, then peel remaining tape
+
+Add switches by soldering, we used Digikey ED90458-ND and ED90501-ND horizontal contact spring switch and target. It helps protect the flex circuit by putting it on a metal or copper block to heatsink while soldering. Need a jumper to connect one of the pads to ground, used a bit of 30 gauge wire for this.
+
+Attach PCB to the Delrin piece with #4-40, 3/16" screws so you can tell how short to cut the flex circuit. 
+Cut out and attach flex circuit to the PCB using the connecter, and to the center part of the cable using double sided tape. On Delrin, Scotch 467MP worked well --clean both parts with alcohol first.
+
+Attach the Delrin rails to the center piece using #4/40 x 3/16" screws and nuts. The example used has rails that are 5% shorter (1.9 inch pitch) than the center piece (2-inch pitch), causing controlled buckling.
+
+The PCB has a port expander that could be used to run signals to a micro controller using only four wires. This would be very helpful if the 2nd ribbon cable were used to make a 8x8 scanned switch array. However, now we are just using the 10pin connector to take the 8 switch states directly to an Arduino, so the PCB is not doing much in this demo except neatening up the wiring.
+
+Connect switches 1-8 to pins 2-9 of an Arduino Uno (or similar) using a 10-pin 0.1" double row connector (use some trial and error or a multimeter to get these in the right order) Also connect ground to pin 9 and power (3.3 or 5V both ok with 5V arduino) to pin 10
+
+Install Cbyte.ino on the Arduino 
+
+Run CSwitchArm from Processing (we used version 1.5.1). You may need to mess around with the serial port number in the Processing code, the serial port can vary with the computer.
+
